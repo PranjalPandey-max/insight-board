@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: insightboard-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306" 
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql 
+    networks:
+      - insight-network
+
+  backend:
+    container_name: insightboard-api
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      PORT: 8080
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET}
+      TOKEN_SECRET_KEY: ${TOKEN_SECRET_KEY} 
+    ports:
+      - "8080:8080"
+    networks:
+      - insight-network
+    depends_on:
+      - db 
+
+  frontend:
+    container_name: insightboard-web
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:80" 
+    networks:
+      - insight-network
+    depends_on:
+      - backend
+
+networks:
+  insight-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local

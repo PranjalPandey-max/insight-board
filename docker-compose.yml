@@ -54,6 +54,35 @@ services:
     depends_on:
       - backend
 
+      # --- SERVIÇO 4: O WORKER (Trabalhador de Background) ---
+  worker:
+    container_name: insightboard-worker
+    # 1. Ele usa EXATAMENTE a mesma imagem da API (economiza espaço e tempo de build)
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+
+    # 2. O comando que ele roda é DIFERENTE. 
+    # Em vez de 'npm start' (que o Dockerfile define), nós substituímos (override)
+    # para rodar o nosso script do worker:
+    command: node src/worker.js
+
+    # 3. Ele precisa das MESMAS variáveis de ambiente que a API:
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      # Ele não precisa de CLIENT_ID, mas precisa da SECRET KEY para descriptografar:
+      TOKEN_SECRET_KEY: ${TOKEN_SECRET_KEY} 
+
+    # 4. Ele também depende do banco de dados estar pronto
+    networks:
+      - insight-network
+    depends_on:
+      - db
+
 networks:
   insight-network:
     driver: bridge

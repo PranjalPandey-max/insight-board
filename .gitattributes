@@ -1,0 +1,13 @@
+# Define o comportamento padrão do Git:
+# Trate todos os arquivos como 'texto' automaticamente e
+# FORCE o final de linha (eol) para ser LF (padrão Linux/Mac) dentro do repositório.
+* text=auto eol=lf
+
+# Lista exceções para arquivos que são 'binários' (que não são texto)
+# e não devem ser convertidos.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.lockb binary

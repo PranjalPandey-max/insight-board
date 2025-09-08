@@ -1,0 +1,44 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.login-container {
+  text-align: center;
+}
+.login-box {
+  background-color: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.login-box h1 {
+  font-size: 2.5rem;
+  color: #1f2328;
+  margin-bottom: 0.5rem;
+}
+.login-box p {
+  font-size: 1.1rem;
+  color: #57606a;
+  margin-bottom: 2rem;
+}
+.login-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #24292f;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+.login-button:hover {
+  background-color: #3f444a;
+}

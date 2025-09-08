@@ -23,6 +23,10 @@ dist/
 .env.test.local
 .env.production.local
 
+# --- NOSSA NOVA LINHA (Issue #3) ---
+# Ignora o .env específico do FRONTEND (dentro da pasta /frontend)
+frontend/.env
+
 # IDE e arquivos temporários
 .vscode/
 .idea/

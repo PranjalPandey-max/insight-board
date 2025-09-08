@@ -1,7 +1,6 @@
 # InsightBoard: Personal Developer Metrics Dashboard
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![CI Pipeline](https://github.com/[SEU_USUARIO]/insight-board/actions/workflows/main.yml/badge.svg)](https://github.com/[SEU_USUARIO]/insight-board/actions/workflows/main.yml)
 [![Tech Stack](https://img.shields.io/badge/Stack-React_|_Node.js_|_Docker-darkblue)](#tech-stack)
 
 A full-stack, containerized application that connects to your GitHub account (via OAuth2) to aggregate, analyze, and display your personal development metrics. Data is collected via a background worker, cached in a MySQL database, and served to a React dashboard via a secure, session-based Node.js API.
@@ -29,7 +28,6 @@ This project demonstrates a complete, end-to-end, resilient software architectur
 
 This system is comprised of four distinct containerized services within a single Docker network, demonstrating a clean separation of concerns (SoC). The API is responsible for fast user interactions (auth, reads), while a separate Worker service handles slow/asynchronous data ingestion.
 
-```mermaid
 graph TD
     subgraph "Atores Externos"
         direction LR

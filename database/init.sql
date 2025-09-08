@@ -1,0 +1,29 @@
+CREATE DATABASE IF NOT EXISTS insightboard_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE insightboard_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    github_id VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) NOT NULL,
+    avatar_url VARCHAR(1024),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_tokens (
+    user_id INT NOT NULL,
+    access_token_encrypted TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS metrics_cache (
+    user_id INT NOT NULL,
+    metric_key VARCHAR(100) NOT NULL,
+    metric_value JSON NOT NULL,
+    last_refreshed_at TIMESTAMP NOT NULL,
+    PRIMARY KEY (user_id, metric_key),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

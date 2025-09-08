@@ -4,17 +4,17 @@ FROM node:18-alpine
 # Diretório de trabalho no container
 WORKDIR /app
 
-# Copia os arquivos de dependência
+# Copia os arquivos de dependência PRIMEIRO (para cache do Docker)
 COPY package*.json ./
 
-# (Vamos manter o install comentado por enquanto)
-# RUN npm install --omit=dev
+# Instala SOMENTE as dependências de produção
+RUN npm install --omit=dev
 
-# Copia o resto do código-fonte
+# Copia o resto do código-fonte (incluindo a pasta /src)
 COPY . .
 
 # Expõe a porta que a API vai rodar
 EXPOSE 8080
 
-# Comando para manter o container vivo (placeholder)
-CMD ["tail", "-f", "/dev/null"]
+# Comando REAL para iniciar o servidor
+CMD [ "npm", "start" ]

